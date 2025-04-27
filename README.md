@@ -23,7 +23,14 @@ print("The packages have been successfully imported")
 bikes_df = pd.read_csv("C:/Users/HP/OneDrive/Documents/_DATA SCIENCE BOOK CAMP TRANINIG/DATA SET/bikes.csv")
 bikes_df.head()
 
+
+
+
+
+
+
 ####  Data Modification
+
 
 ```Python
 # (1). Adding the following 3 extra columns to my pansdas Dataframe:  bikes_df
@@ -53,13 +60,64 @@ bikes_df["Profit"] = bikes_df["SalesRevenue"] - bikes_df["TotalCostPrice"]
 
 
 bikes_df.head()
+```
+## DATA ANALYSIS
+#### DATA FILTERING
+```Python
+IS_USA = bikes_df["CustomerCountry"] == "United States"
+USA_data = bikes_df[(IS_USA)]
+USA_data.head()
 
+
+```
+#### DATA AGGREGATION
+
+```Python
+# Aggregating the filtered data (USA sales data) for each customer
+
+USA_data.pivot_table(values = "Profit", index = "CustomerName", aggfunc =np.sum)
+total_profit_by_customers = USA_data.pivot_table(values = "Profit", index = "CustomerName", aggfunc =np.sum)
+total_profit_by_customers
+#### DATA SORTING
+```Python
+#### DATA SORTING
+
+```
+#### RESULT
+```Python
+top_10_customers = total_profit_by_customers.sort_values("Profit", ascending = False).head(10)
+top_10_customers
+
+## DATA VISUALIZATION
+```Python
+# visualizing the result
+
+top_10_customers.plot(kind = "bar")
+
+# adding a title and label
+
+plt.title = ("The 10 Customers in the United State")
+
+plt.ylabel("Total profit")
+plt.xlabel("Customer names")
+
+# Showing the result
+
+plt.show()
 
 ```
 
 ```
 
-
-
-
 ```
+
+
+
+
+
+
+
+
+
+
+
