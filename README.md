@@ -20,9 +20,6 @@ print("The packages have been successfully imported")
 
 # reading the sales data into a pandas dataframe
 
-
-
-
 ```Python
 bikes_df = pd.read_csv("C:/Users/HP/OneDrive/Documents/_DATA SCIENCE BOOK CAMP TRANINIG/DATA SET/bikes.csv")
 bikes_df.head()
@@ -74,6 +71,7 @@ bikes_df.head()
 ## DATA ANALYSIS
 #### DATA FILTERING
 ```Python
+filtering out the relevant data to solve the promblem statement
 IS_USA = bikes_df["CustomerCountry"] == "United States"
 USA_data = bikes_df[(IS_USA)]
 USA_data.head()
@@ -97,8 +95,9 @@ total_profit_by_customers
 ![DATA AGGREGATION PRO2](https://github.com/user-attachments/assets/8cc9b7db-5306-40d6-a76a-bcd64272e201)
 
 #### DATA SORTING
-sorting the aggregated data in order to rank the customers according to top profit
 ```Python
+sorting the aggregated data in order to rank the customers according to top profit
+
 total_profit_by_customers.sort_values("Profit", ascending = False)
 ```
 
